@@ -1,0 +1,18 @@
+# FastAPI Backend Requirements
+# Voice Demo Studio - Python Backend
+
+# Web Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+
+# Configuration & Validation
+python-dotenv==1.0.0
+pydantic-settings==2.1.0
+
+# Transcription Services
+openai>=1.0.0
+httpx>=0.24.0
+
+# Audio Processing
+pydub>=0.25.1

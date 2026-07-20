@@ -6,6 +6,17 @@ yarn-error.log*
 package-lock.json
 yarn.lock
 
+# Python Virtual Environments
+venv/
+env/
+.venv/
+ENV/
+*.pyc
+__pycache__/
+*.egg-info/
+dist/
+build/
+
 # Production
 /build
 /dist

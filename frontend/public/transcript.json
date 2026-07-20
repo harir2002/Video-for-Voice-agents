@@ -1,0 +1,161 @@
+{
+  "persistent_ui": {
+    "orb_behavior": {
+      "ai": {
+        "type": "expand-pulse",
+        "description": "Orb expands and pulses when AI is speaking"
+      },
+      "customer": {
+        "type": "listening-ripple",
+        "description": "Orb creates ripple effect when customer speaks"
+      },
+      "human_agent": {
+        "type": "soft-pulse",
+        "description": "Gentle pulse when human agent joins"
+      }
+    }
+  },
+  "annotations": [
+    {
+      "id": "ann-1",
+      "type": "ui_chip",
+      "label": "Feature: Multiturn Guidance",
+      "start": 0.00,
+      "end": 0.06,
+      "position": "top-right"
+    },
+    {
+      "id": "ann-2",
+      "type": "ui_chip",
+      "label": "Feature: Predefined FAQ Retrieved",
+      "start": 0.12,
+      "end": 0.19,
+      "position": "top-right"
+    },
+    {
+      "id": "ann-3",
+      "type": "ui_chip",
+      "label": "Feature: Query Context Switch",
+      "start": 0.18,
+      "end": 0.24,
+      "position": "top-center"
+    },
+    {
+      "id": "ann-4",
+      "type": "ui_chip",
+      "label": "Feature: Context Window Retained",
+      "start": 0.35,
+      "end": 0.48,
+      "position": "top-right"
+    },
+    {
+      "id": "ann-5",
+      "type": "ui_chip",
+      "label": "Feature: Interruption Handled",
+      "start": 0.55,
+      "end": 1.00,
+      "position": "top-center"
+    },
+    {
+      "id": "ann-6",
+      "type": "ui_chip",
+      "label": "Feature: Human Handoff",
+      "start": 1.09,
+      "end": 1.14,
+      "position": "top-right"
+    }
+  ],
+  "transcript": [
+    {
+      "id": "seg-1",
+      "start": 0.00,
+      "end": 0.06,
+      "speaker": "ai",
+      "text": "Welcome to Godrej Capital. I'm here to help you find the perfect financial solution."
+    },
+    {
+      "id": "seg-2",
+      "start": 0.06,
+      "end": 0.12,
+      "speaker": "customer",
+      "text": "Haan ji, namaste. Main apke paas loan ke bare mein poochna chahta hoon."
+    },
+    {
+      "id": "seg-3",
+      "start": 0.12,
+      "end": 0.18,
+      "speaker": "ai",
+      "text": "Bilkul! What type of loan are you looking for? Business, personal, or property-based?"
+    },
+    {
+      "id": "seg-4",
+      "start": 0.18,
+      "end": 0.24,
+      "speaker": "customer",
+      "text": "Meri nai business hai. Business loan chahiye mujhe."
+    },
+    {
+      "id": "seg-5",
+      "start": 0.24,
+      "end": 0.32,
+      "speaker": "ai",
+      "text": "Great! Business loans are perfect for new ventures. How long has your business been operating?"
+    },
+    {
+      "id": "seg-6",
+      "start": 0.32,
+      "end": 0.35,
+      "speaker": "customer",
+      "text": "Approximately 2 years."
+    },
+    {
+      "id": "seg-7",
+      "start": 0.35,
+      "end": 0.43,
+      "speaker": "ai",
+      "text": "Perfect! With 2 years of operation, you're eligible for our business loan program. What's your approximate annual revenue?"
+    },
+    {
+      "id": "seg-8",
+      "start": 0.43,
+      "end": 0.47,
+      "speaker": "customer",
+      "text": "Around 5 lakhs per year."
+    },
+    {
+      "id": "seg-9",
+      "start": 0.47,
+      "end": 0.55,
+      "speaker": "ai",
+      "text": "Excellent! Based on your profile, you could qualify for up to 25 lakhs. Would you like to proceed with the application?"
+    },
+    {
+      "id": "seg-10",
+      "start": 0.55,
+      "end": 0.59,
+      "speaker": "customer",
+      "text": "Haan, bilkul. Aage kya karna hoga?"
+    },
+    {
+      "id": "seg-11",
+      "start": 0.59,
+      "end": 1.09,
+      "speaker": "ai",
+      "text": "I'll connect you with our loan specialist who can guide you through the process. They'll collect the necessary documents and help you complete the application."
+    },
+    {
+      "id": "seg-12",
+      "start": 1.09,
+      "end": 1.13,
+      "speaker": "human_agent",
+      "text": "Hello! I'm Rajesh from our loan team. I see you're interested in a business loan for your startup."
+    },
+    {
+      "id": "seg-13",
+      "start": 1.13,
+      "end": 1.22,
+      "speaker": "human_agent",
+      "text": "We'll process your application and you should hear back within 5-7 business days. In the meantime, please gather your business registration and financial documents."
+    }
+  ]
+}

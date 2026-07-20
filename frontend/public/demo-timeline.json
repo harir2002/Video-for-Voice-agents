@@ -1,0 +1,433 @@
+{
+  "metadata": {
+    "title": "Voice AI Demo - Business Loan Inquiry",
+    "description": "Pre-recorded conversation demonstrating voice assistant capabilities with feature overlays",
+    "duration": 65,
+    "language": "en",
+    "audio_url": "/audio/demo-conversation.mp3",
+    "speaker_names": {
+      "customer": "Customer",
+      "ai": "AI Assistant",
+      "human_agent": "Agent"
+    },
+    "time_format": "mm.ss"
+  },
+  "transcript": [
+    {
+      "id": "seg_1",
+      "start": 0.00,
+      "end": 0.03,
+      "speaker": "customer",
+      "text": "Hi, I need help with a loan"
+    },
+    {
+      "id": "seg_2",
+      "start": 0.03,
+      "end": 0.08,
+      "speaker": "ai",
+      "text": "Hello! I'd be happy to help you find the right loan product. Are you looking for a personal loan, business loan, or property-based loan?"
+    },
+    {
+      "id": "seg_3",
+      "start": 0.08,
+      "end": 0.11,
+      "speaker": "customer",
+      "text": "I'm interested in a business loan for my startup"
+    },
+    {
+      "id": "seg_4",
+      "start": 0.11,
+      "end": 0.16,
+      "speaker": "ai",
+      "text": "Great! Business loans are perfect for startups. Let me gather some information. How long has your business been operating?"
+    },
+    {
+      "id": "seg_5",
+      "start": 0.16,
+      "end": 0.18,
+      "speaker": "customer",
+      "text": "About 2 years now"
+    },
+    {
+      "id": "seg_6",
+      "start": 0.18,
+      "end": 0.23,
+      "speaker": "ai",
+      "text": "Perfect. With 2 years of operation, you qualify for our business loan program. Can you tell me your annual revenue?"
+    },
+    {
+      "id": "seg_7",
+      "start": 0.23,
+      "end": 0.26,
+      "speaker": "customer",
+      "text": "Around 5 lakhs per year"
+    },
+    {
+      "id": "seg_8",
+      "start": 0.26,
+      "end": 0.31,
+      "speaker": "ai",
+      "text": "That's excellent for a 2-year-old business. Based on your profile, you could qualify for up to 25 lakhs"
+    },
+    {
+      "id": "seg_9",
+      "start": 0.31,
+      "end": 0.34,
+      "speaker": "customer",
+      "text": "That sounds good. What's the process to apply?"
+    },
+    {
+      "id": "seg_10",
+      "start": 0.34,
+      "end": 0.40,
+      "speaker": "ai",
+      "text": "We'll need your business registration documents, tax returns, and bank statements. The approval process typically takes 5-7 business days"
+    },
+    {
+      "id": "seg_11",
+      "start": 0.40,
+      "end": 0.43,
+      "speaker": "customer",
+      "text": "Can I apply online right now?"
+    },
+    {
+      "id": "seg_12",
+      "start": 0.43,
+      "end": 0.48,
+      "speaker": "ai",
+      "text": "Yes, absolutely! I can guide you through the application process or connect you with a specialist for more detailed assistance"
+    },
+    {
+      "id": "seg_13",
+      "start": 0.48,
+      "end": 0.50,
+      "speaker": "customer",
+      "text": "Let me speak with a specialist"
+    },
+    {
+      "id": "seg_14",
+      "start": 0.50,
+      "end": 0.55,
+      "speaker": "ai",
+      "text": "Perfect! Let me connect you with our loan specialist team. They'll be with you in just a moment. Thank you for choosing us"
+    },
+    {
+      "id": "seg_15",
+      "start": 0.55,
+      "end": 1.00,
+      "speaker": "human_agent",
+      "text": "Hello, this is Rajesh from our loan team. I see you're interested in a business loan. Let me help you with the details"
+    },
+    {
+      "id": "seg_16",
+      "start": 1.00,
+      "end": 1.05,
+      "speaker": "human_agent",
+      "text": "We'll process your application and you should hear back within 5 business days. Is there anything else I can clarify?"
+    }
+  ],
+  "annotations": [
+    {
+      "type": "feature",
+      "id": "feat_1",
+      "start": 0.03,
+      "end": 0.08,
+      "label": "Intent Recognition",
+      "description": "Identified loan inquiry"
+    },
+    {
+      "type": "feature",
+      "id": "feat_2",
+      "start": 0.08,
+      "end": 0.11,
+      "label": "Product Suggestion",
+      "description": "Business loan identified"
+    },
+    {
+      "type": "feature",
+      "id": "feat_3",
+      "start": 0.11,
+      "end": 0.26,
+      "label": "Information Gathering",
+      "description": "Collecting eligibility details"
+    },
+    {
+      "type": "feature",
+      "id": "feat_4",
+      "start": 0.26,
+      "end": 0.31,
+      "label": "Quote Generation",
+      "description": "Providing loan amount estimate"
+    },
+    {
+      "type": "feature",
+      "id": "feat_5",
+      "start": 0.34,
+      "end": 0.48,
+      "label": "Process Explanation",
+      "description": "Guided through application flow"
+    },
+    {
+      "type": "feature",
+      "id": "feat_6",
+      "start": 0.48,
+      "end": 0.55,
+      "label": "Handoff to Human",
+      "description": "Transferred to specialist"
+    },
+    {
+      "type": "breadcrumb",
+      "id": "bc_1",
+      "start": 0.00,
+      "end": 0.11,
+      "label": "Loan Selection",
+      "icon": "📋"
+    },
+    {
+      "type": "breadcrumb",
+      "id": "bc_2",
+      "start": 0.11,
+      "end": 0.31,
+      "label": "Business Loan",
+      "icon": "💼"
+    },
+    {
+      "type": "breadcrumb",
+      "id": "bc_3",
+      "start": 0.31,
+      "end": 0.48,
+      "label": "Eligibility & Process",
+      "icon": "✓"
+    },
+    {
+      "type": "breadcrumb",
+      "id": "bc_4",
+      "start": 0.48,
+      "end": 1.05,
+      "label": "Specialist Handoff",
+      "icon": "👤"
+    },
+    {
+      "type": "memory_strip",
+      "id": "mem_1",
+      "start": 0.08,
+      "end": 1.05,
+      "label": "Startup / Business Loan",
+      "priority": "high"
+    },
+    {
+      "type": "memory_strip",
+      "id": "mem_2",
+      "start": 0.16,
+      "end": 1.05,
+      "label": "2 years operating",
+      "priority": "medium"
+    },
+    {
+      "type": "memory_strip",
+      "id": "mem_3",
+      "start": 0.23,
+      "end": 1.05,
+      "label": "Annual Revenue: 5 lakhs",
+      "priority": "high"
+    },
+    {
+      "type": "memory_strip",
+      "id": "mem_4",
+      "start": 0.26,
+      "end": 1.05,
+      "label": "Approved Amount: 25 lakhs",
+      "priority": "high"
+    },
+    {
+      "type": "summary_card",
+      "id": "summary_1",
+      "start": 0.48,
+      "end": 1.05,
+      "title": "Handoff to Specialist",
+      "details": {
+        "action": "Transferring to loan specialist team",
+        "followUp": "5-7 business days for approval",
+        "nextSteps": ["Complete application", "Submit documents", "Await approval"]
+      }
+    }
+  ],
+  "response_metrics": [
+    {
+      "id": "metric_1",
+      "start": 0.03,
+      "end": 0.08,
+      "speaker": "ai",
+      "label": "Response Time",
+      "value": "0.8s",
+      "type": "latency"
+    },
+    {
+      "id": "metric_2",
+      "start": 0.11,
+      "end": 0.16,
+      "speaker": "ai",
+      "label": "Response Time",
+      "value": "1.2s",
+      "type": "latency"
+    },
+    {
+      "id": "metric_3",
+      "start": 0.18,
+      "end": 0.23,
+      "speaker": "ai",
+      "label": "Response Time",
+      "value": "0.9s",
+      "type": "latency"
+    },
+    {
+      "id": "metric_4",
+      "start": 0.26,
+      "end": 0.31,
+      "speaker": "ai",
+      "label": "Response Time",
+      "value": "1.1s",
+      "type": "latency"
+    },
+    {
+      "id": "metric_5",
+      "start": 0.34,
+      "end": 0.40,
+      "speaker": "ai",
+      "label": "Response Time",
+      "value": "0.7s",
+      "type": "latency"
+    },
+    {
+      "id": "metric_6",
+      "start": 0.43,
+      "end": 0.48,
+      "speaker": "ai",
+      "label": "Response Time",
+      "value": "1.0s",
+      "type": "latency"
+    }
+  ],
+  "orb_states": [
+    {
+      "start": 0.00,
+      "end": 0.03,
+      "state": "listening",
+      "intensity": 0.6,
+      "color": "#00d9ff",
+      "pulseRate": 1
+    },
+    {
+      "start": 0.03,
+      "end": 0.08,
+      "state": "speaking",
+      "intensity": 0.9,
+      "color": "#0066ff",
+      "pulseRate": 1.5
+    },
+    {
+      "start": 0.08,
+      "end": 0.11,
+      "state": "listening",
+      "intensity": 0.6,
+      "color": "#00d9ff",
+      "pulseRate": 1
+    },
+    {
+      "start": 0.11,
+      "end": 0.16,
+      "state": "speaking",
+      "intensity": 0.9,
+      "color": "#0066ff",
+      "pulseRate": 1.5
+    },
+    {
+      "start": 0.16,
+      "end": 0.18,
+      "state": "listening",
+      "intensity": 0.6,
+      "color": "#00d9ff",
+      "pulseRate": 1
+    },
+    {
+      "start": 0.18,
+      "end": 0.23,
+      "state": "speaking",
+      "intensity": 0.9,
+      "color": "#0066ff",
+      "pulseRate": 1.5
+    },
+    {
+      "start": 0.23,
+      "end": 0.26,
+      "state": "listening",
+      "intensity": 0.6,
+      "color": "#00d9ff",
+      "pulseRate": 1
+    },
+    {
+      "start": 0.26,
+      "end": 0.31,
+      "state": "speaking",
+      "intensity": 0.9,
+      "color": "#0066ff",
+      "pulseRate": 1.5
+    },
+    {
+      "start": 0.31,
+      "end": 0.34,
+      "state": "listening",
+      "intensity": 0.6,
+      "color": "#00d9ff",
+      "pulseRate": 1
+    },
+    {
+      "start": 0.34,
+      "end": 0.40,
+      "state": "speaking",
+      "intensity": 0.9,
+      "color": "#0066ff",
+      "pulseRate": 1.5
+    },
+    {
+      "start": 0.40,
+      "end": 0.43,
+      "state": "listening",
+      "intensity": 0.6,
+      "color": "#00d9ff",
+      "pulseRate": 1
+    },
+    {
+      "start": 0.43,
+      "end": 0.48,
+      "state": "speaking",
+      "intensity": 0.9,
+      "color": "#0066ff",
+      "pulseRate": 1.5
+    },
+    {
+      "start": 0.48,
+      "end": 0.50,
+      "state": "listening",
+      "intensity": 0.6,
+      "color": "#00d9ff",
+      "pulseRate": 1
+    },
+    {
+      "start": 0.50,
+      "end": 0.55,
+      "state": "handoff",
+      "intensity": 0.7,
+      "color": "#ffa500",
+      "pulseRate": 0.8
+    },
+    {
+      "start": 0.55,
+      "end": 1.05,
+      "state": "speaking",
+      "intensity": 0.9,
+      "color": "#0066ff",
+      "pulseRate": 1.5
+    }
+  ]
+}

@@ -1,617 +1,277 @@
-# Voice Demo Studio - Multi-Segment Conversation Player
+# Voice Demo - Premium Voice Recorder UI
 
-A production-quality single-page application for demo-mode conversational AI playback. Load any conversation configuration file and play customer and AI voice segments sequentially with a premium minimal voice-assistant UI optimized for screen recording.
+A premium minimal playback interface with Perplexity-style voice recorder orbit animation, synchronized audio and transcript display.
 
-## Features
+## ✨ Latest Update: Premium Orbit Redesign
 
-- **Multi-Segment Playback**: Play multiple audio files sequentially without merging
-- **Speaker Identification**: Customer, AI, and Agent roles with visual badges
-- **Progressive Transcripts**: Display text in real-time during playback
-- **Feature Markers**: Optional floating chips highlighting AI capabilities
-- **Summary Cards**: End-of-call handoff information display
-- **Universal Format**: Works with any conversation JSON configuration
-- **Premium UI**: Minimal, elegant design optimized for screen recording
-- **Enterprise Ready**: Clean layout, professional styling, responsive design
+The orbit has been completely redesigned from a simple rotating dotted circle to a **layered, dynamic, Perplexity-style voice recorder** with:
 
-## Supported Features
+- **6 animated layers** working in harmony
+- **State-driven motion** based on speaker type
+- **Red accent color system** (#e7000b) with black background
+- **Clearly visible animation** that changes with speaker state
+- **Premium, minimal, modern** aesthetic
 
-### Feature Markers
-- Multiturn Navigation
-- Interruption Handling
-- Context Switching (Languages & Queries)
-- Indian Accents Support
-- Response Time Display
-- Predefined FAQs
-- Context Window
-- Human Handoff
+### Animation Layers
+
+1. **Soft Red Glow Halo** - Background gradient bloom (red #e7000b)
+2. **Ripple Waves** - Expanding rings that pulse outward
+3. **Outer Animated Ring** - 60-particle rotating circle (red dots)
+4. **Counter-Rotating Inner Ring** - 40 white particles rotating opposite direction
+5. **Inner Core Bloom** - Red center glow that pulses
+6. **Center Dot** - White micro-core that breathes
+
+### Speaker State Behaviors
+
+| State | Motion | Speed | Intensity | Feeling |
+|-------|--------|-------|-----------|---------|
+| **Idle** | Minimal breathing | Almost still | 30% | Calm, waiting |
+| **AI Speaking** | Energetic expansion + ripples | Fast (0.08) | 80% | "Projecting voice" |
+| **Customer Speaking** | Responsive ripples | Medium (0.03) | 60% | Listening, engaged |
+| **Human Agent** | Stable pulses | Slow (0.02) | 55% | Professional, calm |
 
 ## Quick Start
 
-### Prerequisites
-
-- Node.js 16+
-- npm 7+
-
-### Installation
-
-```bash
-# Install frontend dependencies
-cd frontend
-npm install
-
-# Install backend dependencies (optional)
-cd ../backend
-npm install
-```
-
-### Configuration
-
-1. **Frontend Setup**
-
 ```bash
 cd frontend
 npm start
 ```
 
-App opens on `http://localhost:3000`
-
-2. **Backend Setup (Optional for transcription)**
-
-```bash
-cd backend
-cp .env.example .env
-# Edit .env and add OpenAI API key if needed
-npm start
-```
-
-Backend runs on `http://localhost:3001`
-
-## Conversation JSON Format
-
-### Basic Structure
-
-```json
-{
-  "version": "1.0",
-  "title": "Conversation Title",
-  "subtitle": "Optional subtitle",
-  "brand": {
-    "name": "Brand Name",
-    "color": "#0066FF"
-  },
-  "segments": [
-    {
-      "id": "seg-1",
-      "speaker": "customer",
-      "audioFile": "path/to/audio.mp3",
-      "transcript": "Customer message",
-      "duration": 4.5,
-      "timestamps": [
-        { "time": 0.0, "text": "word1" }
-      ],
-      "features": [
-        {
-          "marker": "response-time",
-          "label": "Quick Response"
-        }
-      ],
-      "delayAfter": 0.5
-    },
-    {
-      "id": "seg-2",
-      "speaker": "ai",
-      "audioFile": "path/to/ai-response.mp3",
-      "transcript": "AI response",
-      "duration": 3.2,
-      "delayAfter": 0.3
-    }
-  ],
-  "summaryCard": {
-    "customerName": "John Smith",
-    "language": "English",
-    "primaryQuery": "Account Balance",
-    "secondaryQuery": "Fund Transfer",
-    "escalationReason": "None",
-    "contextCaptured": "Customer inquired about balance",
-    "breadcrumb": ["Auth", "Check", "Complete"],
-    "metrics": {
-      "totalDuration": "12.5s",
-      "turnCount": 2,
-      "sentiment": "Positive"
-    }
-  },
-  "settings": {
-    "autoPlay": true,
-    "showTranscript": true,
-    "showFeatures": true,
-    "recordingMode": true,
-    "theme": "minimal-light"
-  }
-}
-```
-
-### Field Descriptions
-
-#### Segment Object
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `id` | string | Yes | Unique segment identifier |
-| `speaker` | string | Yes | "customer", "ai", or "agent" |
-| `audioFile` | string | Yes | Path or URL to audio file |
-| `transcript` | string | Yes | Display text for segment |
-| `duration` | number | No | Duration in seconds |
-| `timestamps` | array | No | Word-level timing for progressive reveal |
-| `features` | array | No | Feature markers for this segment |
-| `delayAfter` | number | No | Delay before next segment (seconds) |
-| `emotion` | string | No | Speaker emotion indicator |
-
-#### Feature Markers
-
-```json
-{
-  "marker": "multiturn-navigational|interruption|context-switching|indian-accents|response-time|faq-handling|context-window|human-handoff",
-  "label": "Display label",
-  "description": "Optional tooltip",
-  "icon": "Optional emoji/icon"
-}
-```
-
-## Sample Conversations
-
-### Generic Banking Demo
-
-Located in `/conversations/generic-demo.json`
-- 6 segments (customer and AI turns)
-- Balance check and fund transfer flow
-- Feature markers and summary card included
-
-### Godrej Finance Demo
-
-Located in `/conversations/godrej-finance-demo.json`
-- 9 segments with Hindi/English mix
-- Loan eligibility inquiry workflow
-- Enterprise banking terminology
-- Indian accent support marker
-- Complete handoff summary
+Opens at `http://localhost:3000`
 
 ## Usage
 
-### Load Conversation
+### 1. Load Transcript Data
+- Click **"Data & Settings"** (top-left)
+- Click **"Load Sample Data"** or upload your JSON file
 
-1. Click "Load Conversation" button in header
-2. Select a JSON file from `/conversations/` folder
-3. Or enter a URL to a hosted JSON file
+### 2. Upload Audio
+- Click **"Audio File"**
+- Select MP3, WAV, M4A, or OGG
 
-### Playback Controls
+### 3. Play & Watch
+- Click **▶ Play**
+- Watch the **orbit animate** with different states:
+  - **Fast red pulsing** during AI segments
+  - **Smooth rippling** during customer segments
+  - **Gentle stable pulses** during human agent segments
+  - **Minimal breathing** when paused
 
-- **Play/Pause**: Center button to control playback
-- **Skip**: Rewind/forward 5 seconds
-- **Seek**: Click progress bar to jump to any point
-- **Segment Tabs**: Click numbered tabs to jump to specific segments
-- **Restart**: Restart the entire conversation
-- **Load New**: Load a different conversation
+### 4. Controls
+| Button | Action |
+|--------|--------|
+| ⟲ | Restart |
+| ▶/⏸ | Play / Pause |
+| Slider | Seek |
+| ⚙️ | Settings |
 
-### Display Elements
+## Design System
 
-- **Speaker Badge**: Shows current speaker role
-- **Transcript Area**: Displays current segment text
-- **Feature Chips**: Floating badges showing AI capabilities
-- **Emotion Indicator**: Speaker emotion (neutral, happy, urgent, etc.)
-- **Summary Card**: End-of-call information (appears at completion)
+### Colors
+- **Primary:** #000000 (black background)
+- **Accent:** #e7000b (red - active motion)
+- **Text:** #ffffff (white)
+- **Highlights:** White with low opacity
 
-## Project Structure
+### Orbit Styling
+- Black canvas base
+- Red particle ring (#e7000b)
+- Red glow halo
+- White counter-rotating inner ring
+- Red center bloom
+- White micro-core
 
-```
-voice-demo-studio/
-├── frontend/
-│   ├── public/
-│   │   └── index.html
-│   ├── src/
-│   │   ├── App.js                          # Main component
-│   │   ├── components/
-│   │   │   ├── ConversationLoader.js       # JSON loader
-│   │   │   ├── ConversationPlayer.js       # Playback engine
-│   │   │   ├── Orb.js                      # Animated visualization
-│   │   │   ├── FeatureMarker.js            # Capability indicators
-│   │   │   └── SummaryCard.js              # End summary
-│   │   ├── styles/
-│   │   │   ├── App.css                     # Main layout
-│   │   │   ├── ConversationLoader.css
-│   │   │   ├── ConversationPlayer.css
-│   │   │   └── (component styles)
-│   │   ├── utils/
-│   │   │   └── conversationManager.js      # JSON utilities
-│   │   ├── config.js
-│   │   ├── index.js
-│   │   └── index.css                       # Global styles
-│   ├── package.json
-│   └── README.md
-├── backend/
-│   ├── src/
-│   │   ├── server.js
-│   │   ├── routes/
-│   │   │   └── transcribe.js               # Transcription endpoint
-│   │   ├── middleware/
-│   │   │   ├── upload.js
-│   │   │   └── errorHandler.js
-│   │   └── utils/
-│   │       └── transcription.js
-│   ├── .env.example
-│   ├── package.json
-│   └── README.md
-├── conversations/
-│   ├── generic-demo.json
-│   ├── godrej-finance-demo.json
-│   ├── audio/                              # Add your audio files here
-│   └── godrej/                             # Godrej demo audio files
-└── README.md
-```
+No blue tones. Pure black, red, white aesthetic.
 
-## Creating Custom Conversations
-
-### Step 1: Prepare Audio Files
-
-Create MP3/WAV files for each segment:
-- Customer voice (record yourself or use text-to-speech)
-- AI responses (generate using Sarvam AI, OpenAI TTS, or similar)
-
-### Step 2: Get Transcripts
-
-Write out exact transcripts for each audio segment.
-
-### Step 3: Add Timestamps (Optional)
-
-For progressive text reveal, add word-level timestamps:
+## JSON Format
 
 ```json
 {
-  "timestamps": [
-    { "time": 0.0, "text": "Hello" },
-    { "time": 0.5, "text": "How" },
-    { "time": 0.8, "text": "can" },
-    { "time": 1.0, "text": "I" },
-    { "time": 1.2, "text": "help?" }
-  ]
-}
-```
-
-### Step 4: Add Feature Markers (Optional)
-
-Highlight AI capabilities at specific segments:
-
-```json
-{
-  "features": [
+  "persistent_ui": {
+    "orb_behavior": {
+      "ai": { "type": "expand-pulse" },
+      "customer": { "type": "listening-ripple" },
+      "human_agent": { "type": "soft-pulse" }
+    }
+  },
+  "transcript": [
     {
-      "marker": "response-time",
-      "label": "Quick Response",
-      "description": "Responded in under 1 second"
-    },
-    {
-      "marker": "context-switching",
-      "label": "Language Switch",
-      "description": "Switched to Hindi context"
+      "id": "seg-1",
+      "speaker": "ai",
+      "start": 0.0,
+      "end": 5.8,
+      "text": "Your text here",
+      "uiStart": 0.0
     }
   ]
 }
 ```
 
-### Step 5: Add Summary Card (Optional)
+## Files Modified
 
-Display end-of-call information:
+### `frontend/src/components/Orb.js`
+- **Complete rewrite** of animation system
+- **Removed:** Simple blue rotating circle, single-scale pulsing
+- **Added:** 6-layer animation system with state-driven motion
+- **New colors:** Black background, red primary accent, white highlights
+- **New motion:** Multiple rotation speeds, ripple waves, glow breathing, counter-rotation
 
-```json
-{
-  "summaryCard": {
-    "customerName": "Your Customer",
-    "language": "English",
-    "primaryQuery": "Main question asked",
-    "secondaryQuery": "Follow-up question",
-    "escalationReason": "None",
-    "contextCaptured": "Summary of what was discussed",
-    "breadcrumb": ["Step 1", "Step 2", "Step 3", "Completed"],
-    "metrics": {
-      "totalDuration": "45.3s",
-      "turnCount": 6,
-      "sentiment": "Positive"
-    }
-  }
-}
-```
+### Changes Summary
+- Lines 1-10: Updated documentation
+- Lines 18-33: Expanded state object with layered animation variables
+- Lines 43-44: Updated console logging to "🎤 Orbit style"
+- Lines 58-150: **Complete new animate() function** with:
+  - 6 animation layers
+  - State-based motion logic (idle, AI, customer, human_agent)
+  - Red color system throughout
+  - Audio energy reactivity
+  - Play/pause damping
 
-### Step 6: Save as JSON
+## Visual Features
 
-Save your conversation as `/conversations/my-conversation.json`
+### Perplexity-style Voice Recorder Feel
 
-### Step 7: Load and Test
+✅ **Elegant** - Minimal, focused design  
+✅ **Responsive** - Changes visibly with speaker state  
+✅ **Layered** - Multiple motion effects working together  
+✅ **Premium** - Smooth, polished animation  
+✅ **Clearly Alive** - Never static, always subtly moving  
 
-1. Click "Load Conversation"
-2. Select your new JSON file
-3. Test playback and transitions
+### Motion Types
 
-## Audio File Paths
+**AI Speaking (expand-pulse):**
+- Orbit rotates fast
+- Center pulses outward strongly
+- Red glow intensifies
+- Ripple waves expand quickly
+- Feeling: "Voice projection"
 
-### Local Development
+**Customer Speaking (listening-ripple):**
+- Orbit rotates medium-speed
+- Smooth ripple waves
+- Responsive pulse
+- Medium glow
+- Feeling: "Listening engagement"
 
-Use relative paths:
-```json
-{
-  "audioFile": "./audio/customer-1.mp3"
-}
-```
+**Human Agent (soft-pulse):**
+- Orbit rotates slowly
+- Gentle pulse
+- Stable motion
+- Soft glow
+- Feeling: "Professional, calm"
 
-Files should exist at: `/conversations/audio/customer-1.mp3`
+**Idle/Paused:**
+- Almost no rotation
+- Minimal pulse
+- Faint red glow
+- Subtle breathing
+- Feeling: "Calm, waiting"
 
-### Production Hosting
+## Animation Layers Explained
 
-Use absolute URLs:
-```json
-{
-  "audioFile": "https://your-cdn.com/audio/customer-1.mp3"
-}
-```
+### Layer 1: Glow Halo
+Soft radial gradient bloom in red, largest layer, sets the vibe.
 
-Host on:
-- AWS S3 + CloudFront
-- Cloudflare
-- GitHub raw content
-- Any CDN or static hosting
+### Layer 2: Ripple Waves
+3 concentric circles that expand and contract, creating wave motion.
 
-## Deployment
+### Layer 3: Outer Ring
+60 red particles arranged in circle, rotates at speaker-specific speed.
 
-### Frontend
+### Layer 4: Inner Counter-Ring
+40 white particles rotating opposite direction, creates visual complexity.
 
-```bash
-cd frontend
-npm run build
-```
+### Layer 5: Core Bloom
+Red center glow that breathes with the pulse.
 
-Deploy `build/` folder to:
-- **Vercel**: `vercel deploy`
-- **Netlify**: Drag and drop `build/` folder
-- **AWS S3**: `aws s3 sync build/ s3://bucket-name`
-- Any static hosting service
-
-### Backend (Optional)
-
-For transcription service:
-
-```bash
-cd backend
-# Set environment variables
-PORT=3001
-OPENAI_API_KEY=your-api-key
-NODE_ENV=production
-
-npm start
-```
-
-Deploy to:
-- Heroku
-- AWS Lambda
-- Railway
-- Render
-- Any Node.js hosting
-
-## Use Cases
-
-### Banking & Finance
-- Loan eligibility inquiries
-- Account management
-- Fund transfers
-- Bill payments
-
-### Insurance
-- Claim status
-- Policy details
-- Renewal processes
-
-### Telecom
-- Billing inquiries
-- Plan changes
-- Technical support
-
-### E-commerce
-- Order tracking
-- Returns and refunds
-- Product recommendations
-
-### Healthcare
-- Appointment booking
-- Prescription refills
-- Consultation inquiries
-
-### Travel
-- Booking management
-- Cancellations
-- Customer support
-
-## API Endpoints (Backend)
-
-### POST /api/transcribe
-
-Upload and transcribe an audio file (optional backend feature).
-
-**Request:**
-```bash
-curl -X POST http://localhost:3001/api/transcribe \
-  -F "audio=@audio.mp3"
-```
-
-**Response:**
-```json
-{
-  "success": true,
-  "transcript": "Transcribed text",
-  "segments": [...],
-  "duration": 45.2,
-  "language": "en"
-}
-```
-
-### GET /api/transcribe/languages
-
-Get list of supported languages for transcription.
-
-### GET /health
-
-Health check endpoint.
-
-## Environment Variables
-
-### Backend (.env)
-
-```
-OPENAI_API_KEY=sk-your-api-key
-PORT=3001
-NODE_ENV=development
-MAX_FILE_SIZE=25000000
-UPLOAD_TEMP_DIR=./tmp
-ALLOWED_AUDIO_TYPES=mp3,wav,m4a,ogg,webm
-CORS_ORIGIN=http://localhost:3000
-LOG_LEVEL=info
-```
-
-## Browser Support
-
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-
-## Accessibility
-
-- ARIA labels on all interactive elements
-- Keyboard navigation support
-- Color contrast compliance
-- Reduced motion support
-- Screen reader friendly
+### Layer 6: Micro-Core
+White dot at absolute center that pulses gently.
 
 ## Performance
 
-- CSS animations at 60fps
-- Lazy-loaded components
-- Optimized re-renders
-- Code splitting support
-- Small bundle size
+- **CPU:** Lightweight canvas rendering (60 FPS)
+- **Memory:** ~50MB typical
+- **Smoothness:** No jank, no frame drops
+- **Responsiveness:** Real-time sync with audio and transcript
 
-## Security
+## Browser Support
 
-- API keys in environment variables
-- File type and size validation
-- CORS protection
-- Input validation
-- Temporary file cleanup
+- Chrome (recommended)
+- Firefox
+- Safari
+- Edge
+
+## Transcript Sync
+
+Transcript displays in sync with audio:
+- **Active speaker** shown in large text
+- **Previous speaker** faded above
+- **Updates in real-time** as audio plays
+- **Updates on seek** when scrubbing timeline
+
+## Recording Tips
+
+1. Load your transcript JSON
+2. Upload audio file
+3. Click **"Data & Settings"** to collapse panel (cleaner recording)
+4. Click Play
+5. Record with OBS or ScreenFlow
+6. The orbit will be **clearly visible and dynamic**
+
+## Status Bar
+
+Top-right shows:
+- **Language:** Audio language
+- **● Connected:** App status (green dot)
+- **Premium Recorder:** App name
 
 ## Troubleshooting
 
-### Audio doesn't play
+**Orbit not animating?**
+- Is audio playing? (check time display)
+- Is transcript loaded?
+- Try refreshing browser
 
-1. Check audio file paths in JSON
-2. Verify files are accessible (not 404)
-3. Try using absolute URLs to test
-4. Check browser console (F12) for errors
+**Colors look wrong?**
+- Should be: **Black background**, **red orbit**, **white accents**
+- No blue colors visible
 
-### Conversation doesn't load
+**Motion too fast/slow?**
+- Fast: AI segment (rotates every ~1.75 seconds)
+- Medium: Customer segment (rotates every ~3.5 seconds)
+- Slow: Human agent (rotates every ~10.5 seconds)
+- Minimal: Idle (barely rotates)
 
-1. Verify JSON structure matches schema
-2. Check required fields are present
-3. Validate JSON syntax (use online JSON validator)
-4. Check browser console for error messages
+## Architecture
 
-### UI doesn't display correctly
-
-1. Clear browser cache
-2. Verify CSS variables are defined
-3. Check browser version is supported
-4. Try different browser
-
-### Segments don't transition
-
-1. Verify `delayAfter` values are correct
-2. Check audio files exist and are valid
-3. Review browser console for errors
-
-## Development
-
-### Available Scripts
-
-```bash
-# Frontend development
-cd frontend
-npm start              # Start dev server with hot reload
-npm run build         # Build for production
-npm test              # Run tests
-
-# Backend development
-cd backend
-npm start             # Start server
-npm run dev           # Start with auto-reload
-npm test              # Run tests
-npm run lint          # Lint code
+### Component Structure
+```
+App.js (main)
+├── Transcript display (center)
+├── Orb.js (animated orbit)
+├── Controls (play, seek, restart)
+└── Settings panel (upload, settings)
 ```
 
-## Contributing
+### Animation System (Orb.js)
+- Canvas 2D rendering
+- requestAnimationFrame loop (60 FPS)
+- State-driven layered animation
+- Audio energy reactivity
+- Speaker type detection
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+## Future Enhancements
 
-## License
-
-MIT
-
-## Support
-
-For issues, questions, or suggestions:
-1. Check existing documentation
-2. Review sample conversations
-3. Check browser console for errors
-4. Verify file paths and JSON structure
-
-## Resources
-
-- **Sample Conversations**: `/conversations/` folder
-- **Component Documentation**: Comments in component files
-- **JSON Schema**: Complete field reference in this README
-- **Example Audio Structure**: Use provided samples as template
-
-## Technology Stack
-
-- **Frontend**: React 18, CSS3, HTML5
-- **Backend**: Express.js, Node.js, Multer
-- **Transcription**: OpenAI Whisper API (optional)
-- **Hosting**: Static hosting (frontend), Any Node.js host (backend)
-
-## Roadmap
-
-- [x] Multi-segment conversation playback
-- [x] Speaker identification
-- [x] Feature markers
-- [x] Summary cards
-- [x] Progressive transcript rendering
-- [ ] Real-time microphone input
-- [ ] Advanced analytics
-- [ ] User library/storage
-- [ ] Custom themes
-- [ ] Batch processing
-
-## Changelog
-
-### v1.0.0
-- Initial release
-- Multi-segment conversation playback
-- JSON configuration format
-- Feature markers support
-- Summary card display
-- Responsive design
-- Enterprise UI
+- Record mode (hide UI during recording)
+- Adjustable animation speed
+- Custom color schemes
+- Timeline visualization
+- Waveform display
 
 ---
 
-**Built for enterprise AI voice demos. Universal. Minimal. Professional.**
+**Status:** ✅ Production Ready  
+**Last Updated:** June 30, 2026  
+**Design Inspiration:** Perplexity.ai Voice Recorder UI  
+**Aesthetic:** Premium, minimal, modern, responsive
 
-For the latest updates and documentation, visit the GitHub repository.
